@@ -38,7 +38,7 @@ export class Transfer {
     */
     'paymentInstrumentId'?: string;
     /**
-    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with `category` **bank**.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  
+    * The priority for the bank transfer. This sets the speed at which the transfer is sent and the fees that you have to pay. Required for transfers with `category` **bank**.  Possible values:  * **regular**: For normal, low-value transactions.  * **fast**: Faster way to transfer funds but has higher fees. Recommended for high-priority, low-value transactions.  * **wire**: Fastest way to transfer funds but has the highest fees. Recommended for high-priority, high-value transactions.  * **instant**: Instant way to transfer funds in [SEPA countries](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/index.en.html).
     */
     'priority'?: Transfer.PriorityEnum;
     /**
@@ -148,15 +148,28 @@ export namespace Transfer {
         Wire = <any> 'wire'
     }
     export enum ReasonEnum {
+        AmountLimitExceded = <any> 'amountLimitExceded',
         Approved = <any> 'approved',
+        CounterpartyAccountBlocked = <any> 'counterpartyAccountBlocked',
+        CounterpartyAccountClosed = <any> 'counterpartyAccountClosed',
+        CounterpartyAccountNotFound = <any> 'counterpartyAccountNotFound',
+        CounterpartyAddressRequired = <any> 'counterpartyAddressRequired',
+        CounterpartyBankTimedOut = <any> 'counterpartyBankTimedOut',
+        CounterpartyBankUnavailable = <any> 'counterpartyBankUnavailable',
         Error = <any> 'error',
         NotEnoughBalance = <any> 'notEnoughBalance',
+        RefusedByCounterpartyBank = <any> 'refusedByCounterpartyBank',
+        RejectedByCounterpartyBank = <any> 'rejectedByCounterpartyBank',
+        RouteNotFound = <any> 'routeNotFound',
         Unknown = <any> 'unknown'
     }
     export enum StatusEnum {
         AtmWithdrawal = <any> 'atmWithdrawal',
         AtmWithdrawalReversalPending = <any> 'atmWithdrawalReversalPending',
         AtmWithdrawalReversed = <any> 'atmWithdrawalReversed',
+        AuthAdjustmentAuthorised = <any> 'authAdjustmentAuthorised',
+        AuthAdjustmentError = <any> 'authAdjustmentError',
+        AuthAdjustmentRefused = <any> 'authAdjustmentRefused',
         Authorised = <any> 'authorised',
         BankTransfer = <any> 'bankTransfer',
         BankTransferPending = <any> 'bankTransferPending',
@@ -206,6 +219,7 @@ export namespace Transfer {
         Refused = <any> 'refused',
         ReserveAdjustment = <any> 'reserveAdjustment',
         ReserveAdjustmentPending = <any> 'reserveAdjustmentPending',
+        Returned = <any> 'returned',
         SecondChargeback = <any> 'secondChargeback',
         SecondChargebackPending = <any> 'secondChargebackPending',
         Undefined = <any> 'undefined'
